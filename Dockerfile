@@ -5,7 +5,7 @@ MAINTAINER Jérémy Baumgarth
 # Install php
 RUN apk update && \
     apk upgrade && \
-    apk add --update libressl libressl-dev libssl1.0 supervisor \
+    apk add --update libressl libressl-dev libssl1.0 supervisor redis \
     php5 \
     php5-fpm \
     php5-openssl \
@@ -38,6 +38,7 @@ COPY config/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY config/nginx/conf.d/ /etc/nginx/conf.d/
 
 # PHP configuration
+RUN rm /etc/php5/php-fpm.d/www.conf
 COPY config/php/php-fpm.d/ /etc/php5/fpm.d/
 COPY config/php/conf.d/ /etc/php5/conf.d/
 

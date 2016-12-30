@@ -38,7 +38,7 @@ COPY config/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY config/nginx/conf.d/ /etc/nginx/conf.d/
 
 # PHP configuration
-RUN rm /etc/php5/php-fpm.d/www.conf
+COPY config/php/php-fpm.conf /etc/php5/php-fpm.conf
 COPY config/php/php-fpm.d/ /etc/php5/fpm.d/
 COPY config/php/conf.d/ /etc/php5/conf.d/
 

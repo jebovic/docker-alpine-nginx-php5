@@ -13,6 +13,7 @@ script:
   - docker exec "$(cat ${container_id})" env TERM=xterm redis-server --version
   - curl http://localhost/index.html
   - curl http://localhost/index.php
+  - docker logs "$(cat ${container_id})"
 
 notifications:
   slack:

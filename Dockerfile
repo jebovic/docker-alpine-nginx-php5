@@ -25,6 +25,7 @@ RUN apk update && \
     php5-xml \
     php5-pear \
     php5-imagick \
+    mongo-php5-driver \
     --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
     --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
     --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ && \
@@ -39,6 +40,9 @@ COPY config/nginx/conf.d/ /etc/nginx/conf.d/
 # PHP configuration
 COPY config/php/php-fpm.d/ /etc/php5/fpm.d/
 COPY config/php/conf.d/ /etc/php5/conf.d/
+
+# Redis configuration
+COPY config/redis/redis.conf /etc/redis.conf
 
 # Default pages
 COPY src/ /var/www/

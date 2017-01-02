@@ -8,6 +8,7 @@ RUN apk update && \
     apk add --update libressl libressl-dev libssl1.0 supervisor redis \
     php5 \
     php5-fpm \
+    php5-phar \
     php5-openssl \
     php5-cli \
     php5-common \
